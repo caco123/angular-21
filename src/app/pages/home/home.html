@@ -1,3 +1,7 @@
-@for(route of pagesRoutes; track $index) {
-<a [routerLink]="route.path">{{ route.path }}</a>
-}
+<ul>
+    @for(route of pagesRoutes; track $index) {
+    <li>
+        <a [routerLink]="route.path">{{ route.path }}</a>
+    </li>
+    }
+</ul>
