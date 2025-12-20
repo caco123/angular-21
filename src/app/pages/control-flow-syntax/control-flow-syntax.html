@@ -1,1 +1,39 @@
-<p>control-flow-syntax works!</p>
+<div class="users-list">
+    @for (user of users; track $index) {
+    <div class="user">
+        <img [src]="user.img" alt="">
+        <h2>{{ user.name }}</h2>
+        @if (user.age > 30) {
+        <p>Adult</p>
+        } @else {
+        <p>Minor</p>
+        }
+
+        @switch (user.occupation) {
+        @case (occupations.Doctor) {
+        <p [style.color]="color[user.occupation]">Doctor</p>
+        }
+        @case (occupations.Engineer) {
+        <p [style.color]="color[user.occupation]">Engineer</p>
+        }
+        @case (occupations.Lawyer) {
+        <p [style.color]="color[user.occupation]">Lawyer</p>
+        }
+        @case (occupations.Other) {
+        <p [style.color]="color[user.occupation]">Other</p>
+        }
+        @case (occupations.Student) {
+        <p [style.color]="color[user.occupation]">Student</p>
+        }
+        @case (occupations.Teacher) {
+        <p [style.color]="color[user.occupation]">Teacher</p>
+        }
+        @default {
+        <p [style.color]="'red'">Unknown</p>
+        }
+        }
+    </div>
+    } @empty {
+    <p>No users found</p>
+    }
+</div>

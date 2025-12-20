@@ -12,5 +12,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'computed',
         loadComponent: () => import('./computed/computed').then((m) => m.Computed)
+    },
+    {
+        path: 'control-flow-syntax',
+        loadComponent: () => import('./control-flow-syntax/control-flow-syntax').then((m) => m.ControlFlowSyntax)
     }
 ];
