@@ -8,5 +8,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'signals',
         loadComponent: () => import('./signals/signals').then((m) => m.Signals)
+    },
+    {
+        path: 'computed',
+        loadComponent: () => import('./computed/computed').then((m) => m.Computed)
     }
 ];
