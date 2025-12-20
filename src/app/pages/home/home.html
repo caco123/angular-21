@@ -1,1 +1,3 @@
-<p>home works!</p>
+@for(route of pagesRoutes; track $index) {
+<a [routerLink]="route.path">{{ route.path }}</a>
+}
