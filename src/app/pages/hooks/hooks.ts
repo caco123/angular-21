@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ComponentRef, OnDestroy, OnInit, viewChild, ViewChild } from '@angular/core';
-import { combineLatest, Subject, takeUntil } from 'rxjs';
+import { AfterViewInit, Component, OnDestroy, OnInit, viewChild, ViewChild } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
 import { Changes } from './ngChanges/ngChanges';
 import { FormsModule } from '@angular/forms';
 
