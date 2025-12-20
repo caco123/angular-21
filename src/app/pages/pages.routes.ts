@@ -24,5 +24,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'effects',
         loadComponent: () => import('./effects/effects').then((m) => m.Effects)
+    },
+    {
+        path: 'pipes',
+        loadComponent: () => import('./pipes/pipes').then((m) => m.Pipes)
     }
 ];
