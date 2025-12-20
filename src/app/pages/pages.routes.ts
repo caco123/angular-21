@@ -20,5 +20,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'directives',
         loadComponent: () => import('./directives/directives').then((m) => m.Directives)
+    },
+    {
+        path: 'effects',
+        loadComponent: () => import('./effects/effects').then((m) => m.Effects)
     }
 ];
