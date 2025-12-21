@@ -36,5 +36,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'http-resources',
         loadComponent: () => import('./http-resources/http-resources').then((m) => m.HttpResources)
+    },
+    {
+        path: 'resources',
+        loadComponent: () => import('./resources/resources').then((m) => m.Resources)
     }
 ];

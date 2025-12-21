@@ -1,1 +1,26 @@
 <p>resources works!</p>
+@if(loading()) {
+<h1>is loading</h1>
+}
+
+<!-- resourse isLoading -->
+@if(user.isLoading()) {
+<h1>Loading user...</h1>
+}
+<br />
+<button (click)="reload()">reload</button>
+<button (click)="addUser()">addUser</button>
+<button (click)="user.set([])">clear</button>
+
+<br />
+<input type="text" [formControl]="nameFormControl" placeholder="Enter name">
+<!-- error -->
+@if(user.error()) {
+<p>Error: {{ user.error() }}</p>
+}
+
+<ul>
+    @for (item of user.value()?.results; track $index) {
+    <li>{{ item.name }}</li>
+    }
+</ul>
