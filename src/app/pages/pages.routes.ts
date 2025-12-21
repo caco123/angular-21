@@ -40,5 +40,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'resources',
         loadComponent: () => import('./resources/resources').then((m) => m.Resources)
+    },
+    {
+        path: 'linked-signals',
+        loadComponent: () => import('./linked-signals/linked-signals').then((m) => m.LinkedSignals)
     }
 ];

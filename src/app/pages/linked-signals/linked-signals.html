@@ -1,1 +1,42 @@
 <p>linked-signals works!</p>
+
+<div>
+    <h2>Product List</h2>
+    <ul>
+        @for (product of products(); track $index) {
+        <li (click)="selectedProduct.set(product)">
+            {{ product.name }} - {{ product.price }}
+        </li>
+        }
+    </ul>
+</div>
+
+<div>
+    <h2>Selected Product</h2>
+    @if(selectedProduct()){
+    <p>
+        {{ selectedProduct()?.name }} - {{ selectedProduct()?.price }}
+    </p>
+    }
+    @else{
+    <p>No product selected</p>
+    }
+</div>
+
+<div>
+    <h2>Price</h2>
+    <p>{{ price() }}</p>
+</div>
+
+<div>
+    <h2>Quantity</h2>
+    <p>{{ quantity() }}</p>
+</div>
+
+<div>
+    <h2>Total</h2>
+    <p>{{ total() }}</p>
+</div>
+
+<button (click)="quantityChanged(1)">Add</button>
+<button (click)="quantityChanged(-1)">Remove</button>
