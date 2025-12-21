@@ -32,5 +32,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'interceptors',
         loadComponent: () => import('./inteceptors/inteceptors').then((m) => m.Inteceptors)
+    },
+    {
+        path: 'http-resources',
+        loadComponent: () => import('./http-resources/http-resources').then((m) => m.HttpResources)
     }
 ];

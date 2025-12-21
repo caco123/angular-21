@@ -1,1 +1,12 @@
 <p>http-resources works!</p>
+<input type="text" [formControl]="nameFormControl" placeholder="Enter name">
+<div class="container">
+    @for(item of characters(); track $index){
+    <div class="item">
+        <img [src]="item.image" alt="">
+        <p>{{item.name}}</p>
+    </div>
+    }@empty{
+    <p>No data</p>
+    }
+</div>
