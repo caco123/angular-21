@@ -1,0 +1,8 @@
+<p>ngcontent works!</p>
+<app-child>
+    <form form-area [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="name">
+        <input type="text" formControlName="email">
+        <button type="submit">Submit</button>
+    </form>
+</app-child>

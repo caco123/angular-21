@@ -44,5 +44,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'linked-signals',
         loadComponent: () => import('./linked-signals/linked-signals').then((m) => m.LinkedSignals)
+    },
+    {
+        path: 'ngcontent',
+        loadComponent: () => import('./ngcontent/ngcontent').then((m) => m.Ngcontent)
     }
 ];
