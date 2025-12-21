@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { shouldPassGuard } from '../guards/should-pass-guard';
+import { formDirtyGuard } from '../guards/form-dirty-guard';
 
 export const pagesRoutes: Routes = [
     {
@@ -56,5 +58,11 @@ export const pagesRoutes: Routes = [
     {
         path: 'ngcomponentoutlet',
         loadComponent: () => import('./ngcomponentoutlet/ngcomponentoutlet').then((m) => m.Ngcomponentoutlet)
+    },
+    {
+        path: 'guards',
+        canActivate: [shouldPassGuard],
+        canDeactivate: [formDirtyGuard],
+        loadComponent: () => import('./guardspage/guardspage').then((m) => m.Guardspage)
     }
 ];
