@@ -28,5 +28,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'pipes',
         loadComponent: () => import('./pipes/pipes').then((m) => m.Pipes)
+    },
+    {
+        path: 'interceptors',
+        loadComponent: () => import('./inteceptors/inteceptors').then((m) => m.Inteceptors)
     }
 ];
