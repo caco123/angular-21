@@ -52,5 +52,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'ngtemplateoutlet',
         loadComponent: () => import('./ngtemplateoutlet/ngtemplateoutlet').then((m) => m.Ngtemplateoutlet)
+    },
+    {
+        path: 'ngcomponentoutlet',
+        loadComponent: () => import('./ngcomponentoutlet/ngcomponentoutlet').then((m) => m.Ngcomponentoutlet)
     }
 ];
