@@ -64,5 +64,9 @@ export const pagesRoutes: Routes = [
         canActivate: [shouldPassGuard],
         canDeactivate: [formDirtyGuard],
         loadComponent: () => import('./guardspage/guardspage').then((m) => m.Guardspage)
+    },
+    {
+        path: 'control-value-accessor',
+        loadComponent: () => import('./contol-value-accessor/contol-value-accessor').then((m) => m.ContolValueAccessor)
     }
 ];
