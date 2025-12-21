@@ -1,0 +1,9 @@
+<p>ngtemplateoutlet works!</p>
+
+<ng-container [ngTemplateOutlet]="myTemplate" [ngTemplateOutletContext]="{user: {name: 'John', age: 30}}">
+</ng-container>
+
+<ng-template #myTemplate let-user="user">
+    <p>Name: {{user.name}}</p>
+    <p>Age: {{user.age}}</p>
+</ng-template>
