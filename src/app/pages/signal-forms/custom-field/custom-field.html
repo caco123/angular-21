@@ -4,7 +4,7 @@
 
 @if (this.controlAux()?.touched() && this.controlAux()?.invalid()) {
 <ul class="error-list">
-    @for (error of this.controlAux()?.errors(); track error) {
+    @for (error of this.controlAux()?.errors(); track $index) {
     <li>{{ error.message }}</li>
     }
 </ul>
