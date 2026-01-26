@@ -1,0 +1,32 @@
+<p>signal-forms works!</p>
+<form (submit)="onSubmit($event)">
+    <div>
+        <label>
+            Email:
+            <input type="email" [formField]="loginForm.email" />
+        </label>
+        @if (loginForm.email().touched() && loginForm.email().invalid()) {
+        <ul class="error-list">
+            @for (error of loginForm.email().errors(); track $index) {
+            <li>{{ error.message }}</li>
+            }
+        </ul>
+        }
+    </div>
+    <div>
+        <label>
+            Password:
+            <input type="password" [formField]="loginForm.password" />
+        </label>
+        @if (loginForm.password().touched() && loginForm.password().invalid()) {
+        <div class="error-list">
+            @for (error of loginForm.password().errors(); track $index) {
+            <p>{{ error.message }}</p>
+            }
+        </div>
+        }
+    </div>
+    <button type="submit">Log In</button>
+</form>
+<!-- ES MÁS CÓMODO USAR LA DIRECTIVA [formField] que ofrece angular que una clase  -->
+<app-custom-field [controlAux]="loginForm.email()"></app-custom-field>

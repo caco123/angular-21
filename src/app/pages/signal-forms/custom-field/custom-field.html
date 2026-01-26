@@ -1,0 +1,11 @@
+<p>custom-field works!</p>
+<!-- <input #fieldAux type="text" [value]="value()" (input)="onInput()" /> -->
+<input type="text" (input)="onInput()" />
+
+@if (this.controlAux()?.touched() && this.controlAux()?.invalid()) {
+<ul class="error-list">
+    @for (error of this.controlAux()?.errors(); track error) {
+    <li>{{ error.message }}</li>
+    }
+</ul>
+}

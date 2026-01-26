@@ -68,5 +68,9 @@ export const pagesRoutes: Routes = [
     {
         path: 'control-value-accessor',
         loadComponent: () => import('./contol-value-accessor/contol-value-accessor').then((m) => m.ContolValueAccessor)
-    }
+    },
+     {
+        path: 'signal-forms',
+        loadComponent: () => import('./signal-forms/signal-forms').then((m) => m.SignalForms)
+     }
 ];
