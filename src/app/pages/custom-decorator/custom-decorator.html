@@ -1,0 +1,12 @@
+<p>custom-decorator works!</p>
+
+<form>
+    <label for="email">Email:</label>
+    <input #emailInput type="text" id="email">
+    <button type="submit" (click)="login(emailInput.value)">Login</button>
+</form>
+
+<br>
+<p>Nombre: {{ personName }}</p> <button type="button" (click)="toggleName()">Actualizar Nombre</button>
+<br>
+<button type="button" (click)="fetchData()">Obtener Datos</button>

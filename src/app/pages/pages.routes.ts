@@ -72,5 +72,9 @@ export const pagesRoutes: Routes = [
      {
         path: 'signal-forms',
         loadComponent: () => import('./signal-forms/signal-forms').then((m) => m.SignalForms)
+     },
+     {
+        path: 'custom-decorator',
+        loadComponent: () => import('./custom-decorator/custom-decorator').then((m) => m.CustomDecorator)
      }
 ];
