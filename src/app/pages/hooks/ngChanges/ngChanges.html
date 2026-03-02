@@ -1,2 +1,10 @@
-<p>child works!</p>
-<p>{{ name }}</p>
+<div class="child-card">
+    <div class="status-indicator"></div>
+    <div class="child-content">
+        <h3 class="child-title">Child Component (ngChanges)</h3>
+        <p class="child-value">
+            <span class="label">Valor actual:</span>
+            <span class="value-highlight">{{ name || 'Ninguno' }}</span>
+        </p>
+    </div>
+</div>

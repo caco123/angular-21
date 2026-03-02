@@ -1,5 +1,15 @@
-<p>hooks works!</p>
+<div class="hooks-container">
+    <div class="glass-card">
+        <h1 class="page-title">
+            <span class="gradient-text">Hooks</span> Works!
+        </h1>
 
-<input type="text" [(ngModel)]="name">
+        <div class="input-group">
+            <label for="nameInput" class="input-label">Ingresa un nombre</label>
+            <input id="nameInput" type="text" [(ngModel)]="name" class="modern-input" placeholder="Ej: John Doe">
+        </div>
 
-<app-ngChanges #child [name]="name"></app-ngChanges>
+        <!-- El componente hijo recibe los cambios -->
+        <app-ngChanges #child [name]="name"></app-ngChanges>
+    </div>
+</div>

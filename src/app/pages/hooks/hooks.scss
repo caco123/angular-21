@@ -1,0 +1,119 @@
+$primary-color: #6366f1; // Indigo
+$secondary-color: #a855f7; // Purple
+$bg-color: #0f172a; // Slate 900
+$text-light: #f8fafc;
+$glass-bg: rgba(255, 255, 255, 0.05);
+$glass-border: rgba(255, 255, 255, 0.1);
+
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: $bg-color;
+    background-image:
+        radial-gradient(at 0% 0%, rgba($primary-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba($secondary-color, 0.2) 0px, transparent 50%);
+    color: $text-light;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    margin: -8px;
+    /* Offset default body margin if not removed globally */
+    padding: 8px;
+    /* Add some padding back */
+}
+
+.hooks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.glass-card {
+    background: $glass-bg;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid $glass-border;
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-align: center;
+    letter-spacing: -0.025em;
+
+    .gradient-text {
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .input-label {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba($text-light, 0.8);
+        margin-left: 0.5rem;
+    }
+}
+
+.modern-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: 1px solid $glass-border;
+    background: rgba(0, 0, 0, 0.2);
+    color: $text-light;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+
+    &::placeholder {
+        color: rgba($text-light, 0.3);
+    }
+
+    &:focus {
+        border-color: rgba($primary-color, 0.5);
+        box-shadow: 0 0 0 4px rgba($primary-color, 0.1);
+        background: rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .glass-card {
+        padding: 2rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+}
