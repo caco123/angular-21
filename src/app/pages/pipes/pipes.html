@@ -1,4 +1,37 @@
-<p>pipes works!</p>
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">Custom Pipes</span> Works!
+        </h1>
 
-<p>{{ angular | split }}</p>
-<p>{{ angular | split: '-' }}</p>
+        <div class="content-section">
+            <p class="description">
+                Las <strong>Pipes</strong> transforman el texto antes de reflejarse en la vista. Aquí probamos la
+                directiva personalizada <code class="code-badge">SplitPipe</code>.
+            </p>
+
+            <div class="original-text">
+                <span class="label">Texto Original:</span>
+                <span class="value">"{{ angular }}"</span>
+            </div>
+
+            <div class="pipes-grid">
+                <div class="pipe-card">
+                    <div class="pipe-header">
+                        <span class="pipe-name">SplitPipe (Default Separator)</span>
+                        <code class="pipe-code">{{ angular | split }}</code>
+                    </div>
+                    <p class="pipe-description">Divide usando el espacio por defecto y une con comas.</p>
+                </div>
+
+                <div class="pipe-card highlight-card">
+                    <div class="pipe-header">
+                        <span class="pipe-name">SplitPipe (Custom Separator)</span>
+                        <code class="pipe-code highlight-text">{{ angular | split: '-' }}</code>
+                    </div>
+                    <p class="pipe-description">Pasando <code>'-'</code> como argumento al pipe.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
