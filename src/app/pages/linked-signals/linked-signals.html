@@ -1,42 +1,75 @@
-<p>linked-signals works!</p>
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">Linked Signals</span> Works!
+        </h1>
 
-<div>
-    <h2>Product List</h2>
-    <ul>
-        @for (product of products(); track $index) {
-        <li (click)="selectedProduct.set(product)">
-            {{ product.name }} - {{ product.price }}
-        </li>
-        }
-    </ul>
+        <div class="content-section">
+            <p class="description">
+                Demostración del poder de <code class="code-badge">linkedSignal</code>. Al cambiar de producto, la
+                cantidad se reinicia automáticamente gracias al enlace con el Signal origen.
+            </p>
+
+            <div class="dashboard-grid">
+                <!-- Columna Izquierda: Lista de Productos -->
+                <div class="panel-card products-panel">
+                    <h2 class="panel-title">Lista de Productos</h2>
+                    <div class="product-list">
+                        @for (product of products(); track product.name) {
+                        <button class="product-item" [class.selected]="selectedProduct()?.name === product.name"
+                            (click)="selectedProduct.set(product)">
+                            <span class="product-name">{{ product.name }}</span>
+                            <span class="product-price">${{ product.price }}</span>
+                        </button>
+                        }
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Detalles Financieros -->
+                <div class="panel-card details-panel">
+                    <h2 class="panel-title">Carrito Actual</h2>
+
+                    @if(selectedProduct()) {
+                    <div class="details-content">
+                        <div class="selected-product-banner">
+                            <span class="icon">📦</span>
+                            <div class="banner-text">
+                                <h3>{{ selectedProduct()?.name }}</h3>
+                                <p>Seleccionado para compra</p>
+                            </div>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric-box">
+                                <span class="metric-label">Precio Unitario</span>
+                                <span class="metric-value">${{ price() }}</span>
+                            </div>
+
+                            <div class="metric-box highlight">
+                                <span class="metric-label">Cantidad</span>
+                                <div class="quantity-controls">
+                                    <button class="qty-btn remove" (click)="quantityChanged(-1)"
+                                        [disabled]="quantity() <= 1">-</button>
+                                    <span class="qty-value">{{ quantity() }}</span>
+                                    <button class="qty-btn add" (click)="quantityChanged(1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="total-box">
+                            <span class="total-label">Total a Pagar</span>
+                            <span class="total-value">${{ total() }}</span>
+                        </div>
+                    </div>
+                    } @else {
+                    <div class="empty-state">
+                        <span class="icon">🛒</span>
+                        <p>No se ha seleccionado ningún producto</p>
+                        <span>Selecciona uno de la lista para continuar.</span>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div>
-    <h2>Selected Product</h2>
-    @if(selectedProduct()){
-    <p>
-        {{ selectedProduct()?.name }} - {{ selectedProduct()?.price }}
-    </p>
-    }
-    @else{
-    <p>No product selected</p>
-    }
-</div>
-
-<div>
-    <h2>Price</h2>
-    <p>{{ price() }}</p>
-</div>
-
-<div>
-    <h2>Quantity</h2>
-    <p>{{ quantity() }}</p>
-</div>
-
-<div>
-    <h2>Total</h2>
-    <p>{{ total() }}</p>
-</div>
-
-<button (click)="quantityChanged(1)">Add</button>
-<button (click)="quantityChanged(-1)">Remove</button>
