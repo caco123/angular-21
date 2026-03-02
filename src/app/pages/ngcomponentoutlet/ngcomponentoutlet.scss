@@ -1,0 +1,221 @@
+$primary-color: #eab308; // Yellow 500
+$secondary-color: #6366f1; // Indigo 500
+$bg-color: #0f172a; // Slate 900
+$text-light: #f8fafc;
+$glass-bg: rgba(255, 255, 255, 0.05);
+$glass-border: rgba(255, 255, 255, 0.1);
+
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: $bg-color;
+    background-image:
+        radial-gradient(at 0% 0%, rgba($primary-color, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba($secondary-color, 0.15) 0px, transparent 50%);
+    color: $text-light;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    margin: -8px;
+    padding: 8px;
+}
+
+.page-container {
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.glass-container {
+    background: $glass-bg;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid $glass-border;
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-align: center;
+    letter-spacing: -0.025em;
+
+    .gradient-text {
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba($text-light, 0.9);
+    text-align: center;
+    margin: 0;
+    max-width: 650px;
+}
+
+.code-badge {
+    background: rgba(15, 23, 42, 0.6);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Fira Code', monospace;
+    color: #fde047; // Yellow 300
+    font-size: 0.9em;
+}
+
+/* Dashboard Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.panel-card {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.panel-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgba($text-light, 0.9);
+    margin: 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modern-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &.btn-primary {
+        background: linear-gradient(135deg, $primary-color, #fbbf24);
+        box-shadow: 0 4px 15px rgba($primary-color, 0.4);
+
+        &:hover {
+            box-shadow: 0 6px 20px rgba($primary-color, 0.5);
+        }
+
+        color: #1e293b;
+    }
+
+    &.btn-danger {
+        background: linear-gradient(135deg, #f43f5e, #e11d48);
+        box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+
+        &:hover {
+            box-shadow: 0 6px 20px rgba(244, 63, 94, 0.5);
+        }
+    }
+}
+
+/* Dynamic Area */
+.dynamic-area {
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px dashed rgba($secondary-color, 0.5);
+    border-radius: 16px;
+    padding: 1rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+
+    /* Select and hide the empty message dynamically via CSS */
+    &:has(.child-component-wrapper) .empty-placeholder {
+        display: none;
+    }
+}
+
+.empty-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba($text-light, 0.4);
+    font-size: 0.95rem;
+    text-align: center;
+    pointer-events: none;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .glass-container {
+        padding: 2rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+}

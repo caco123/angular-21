@@ -1,0 +1,99 @@
+.child-component-wrapper {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(234, 179, 8, 0.1));
+    border: 1px solid rgba(99, 102, 241, 0.3); // Indigo tint
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-bottom: 1rem;
+}
+
+.child-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    .icon {
+        font-size: 1.8rem;
+    }
+
+    .title-info {
+        h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #f8fafc;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: rgba(248, 250, 252, 0.6);
+        }
+    }
+}
+
+.child-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.4);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+
+    .label {
+        font-size: 0.85rem;
+        color: rgba(248, 250, 252, 0.6);
+        text-transform: uppercase;
+    }
+
+    .value {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fde047;
+        font-family: 'Fira Code', monospace;
+    }
+}
+
+.action-btn {
+    background: rgba(99, 102, 241, 0.8);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background: rgba(99, 102, 241, 1);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}

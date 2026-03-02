@@ -1,3 +1,17 @@
-<p>view-container-ref-child-component works!</p>
-<p>{{ name() }}</p>
-<button (click)="nameClicked.emit()">Click me</button>
+<div class="child-component-wrapper">
+    <div class="child-header">
+        <span class="icon">✨</span>
+        <div class="title-info">
+            <h3>Componente Dinámico</h3>
+            <p>Este componente fue creado desde código TS.</p>
+        </div>
+    </div>
+
+    <div class="child-body">
+        <div class="data-row">
+            <span class="label">Input [name]:</span>
+            <span class="value">{{ name() }}</span>
+        </div>
+        <button class="action-btn" (click)="nameClicked.emit()">Emitir Evento (Click me)</button>
+    </div>
+</div>

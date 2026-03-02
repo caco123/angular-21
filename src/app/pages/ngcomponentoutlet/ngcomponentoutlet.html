@@ -1,5 +1,44 @@
-<p>ngcomponentoutlet works!</p>
-<ng-container #viewContainerRef></ng-container>
-<br>
-<button (click)="clearContainer()">Clear container</button>
-<button (click)="addChild()">Add child</button>
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">ViewContainerRef</span> Works!
+        </h1>
+
+        <div class="content-section">
+            <p class="description">
+                Creación y destrucción dinámica de componentes en tiempo de ejecución utilizando <code
+                    class="code-badge">createComponent()</code> y un ancla <code
+                    class="code-badge">ViewContainerRef</code>.
+            </p>
+
+            <div class="dashboard-grid">
+                <!-- Controles Padre -->
+                <div class="panel-card controls-panel">
+                    <h2 class="panel-title">Controles Padre</h2>
+
+                    <div class="action-buttons">
+                        <button class="modern-btn btn-primary" (click)="addChild()">
+                            <span class="icon">➕</span> Add Child
+                        </button>
+                        <button class="modern-btn btn-danger" (click)="clearContainer()">
+                            <span class="icon">🗑️</span> Clear Container
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Área Dinámica -->
+                <div class="panel-card view-container-panel">
+                    <h2 class="panel-title">Área de Inyección Dinámica</h2>
+                    <div class="dynamic-area">
+                        <ng-container #viewContainerRef></ng-container>
+
+                        <!-- Mensaje informativo cuando está vacía -->
+                        <div class="empty-placeholder">
+                            <span>El contenedor está listo. Haz click en "Add Child" para inyectar.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
