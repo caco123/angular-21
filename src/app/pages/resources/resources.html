@@ -1,26 +1,71 @@
-<p>resources works!</p>
-@if(loading()) {
-<h1>is loading</h1>
-}
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">Resource API</span> Works!
+        </h1>
 
-<!-- resourse isLoading -->
-@if(user.isLoading()) {
-<h1>Loading user...</h1>
-}
-<br />
-<button (click)="reload()">reload</button>
-<button (click)="addUser()">addUser</button>
-<button (click)="user.set([])">clear</button>
+        <div class="content-section">
+            <p class="description">
+                Probando la nueva API <code class="code-badge">resource()</code> nativa de Angular con recarga,
+                actualización local y borrado.
+            </p>
 
-<br />
-<input type="text" [formControl]="nameFormControl" placeholder="Enter name">
-<!-- error -->
-@if(user.error()) {
-<p>Error: {{ user.error() }}</p>
-}
+            <div class="controls-container">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" [formControl]="nameFormControl" class="modern-input" placeholder="Buscar...">
+                </div>
 
-<ul>
-    @for (item of user.value()?.results; track $index) {
-    <li>{{ item.name }}</li>
-    }
-</ul>
+                <div class="action-buttons">
+                    <button class="modern-btn btn-primary" (click)="reload()">
+                        <span class="icon">🔄</span> Reload
+                    </button>
+                    <button class="modern-btn btn-secondary" (click)="addUser()">
+                        <span class="icon">➕</span> Add User
+                    </button>
+                    <button class="modern-btn btn-danger" (click)="user.set([])">
+                        <span class="icon">🗑️</span> Clear
+                    </button>
+                </div>
+            </div>
+
+            <!-- State Containers -->
+            <div class="state-container">
+                @if(user.isLoading() || loading()) {
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Cargando información...</p>
+                </div>
+                }
+
+                @if(user.error()) {
+                <div class="error-state">
+                    <span class="icon">⚠️</span>
+                    <p>Error: {{ user.error() }}</p>
+                </div>
+                }
+            </div>
+
+            <!-- Data List -->
+            <div class="results-list">
+                @for (item of user.value()?.results; track $index) {
+                <div class="list-item">
+                    <div class="avatar">
+                        <img [src]="item.image || 'https://rickandmortyapi.com/api/character/avatar/19.jpeg'"
+                            alt="{{item.name}} avatar">
+                    </div>
+                    <span class="item-name">{{ item.name }}</span>
+                </div>
+                } @empty {
+                @if(!user.isLoading() && !user.error()) {
+                <div class="empty-state">
+                    <span class="icon">📭</span>
+                    <p>No hay resultados disponibles. Intenta buscar o agregar un usuario localmente.</p>
+                </div>
+                }
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
