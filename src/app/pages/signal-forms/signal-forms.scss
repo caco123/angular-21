@@ -1,61 +1,267 @@
-form {
+$primary-color: #8b5cf6; // Violet 500
+$secondary-color: #ec4899; // Pink 500
+$bg-color: #0f172a; // Slate 900
+$text-light: #f8fafc;
+$glass-bg: rgba(255, 255, 255, 0.05);
+$glass-border: rgba(255, 255, 255, 0.1);
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: $bg-color;
+  background-image:
+    radial-gradient(at 0% 0%, rgba($primary-color, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba($secondary-color, 0.15) 0px, transparent 50%);
+  color: $text-light;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  margin: -8px;
+  padding: 8px;
+}
+
+.page-container {
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glass-container {
+  background: $glass-bg;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid $glass-border;
+  border-radius: 24px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 550px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 400px;
-  padding: 1rem;
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    sans-serif;
+  gap: 2.5rem;
 }
-div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+
+.form-header {
+  text-align: center;
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.025em;
+
+    .gradient-text {
+      background: linear-gradient(135deg, $primary-color, $secondary-color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba($text-light, 0.7);
+    margin: 0;
+  }
 }
-label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  font-weight: 500;
-}
-input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
+
+.code-badge {
+  background: rgba(15, 23, 42, 0.6);
+  padding: 0.15rem 0.4rem;
   border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Fira Code', monospace;
+  color: #c084fc; // Purple 400
+  font-size: 0.85em;
+}
+
+/* Glass Form */
+.glass-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba($text-light, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    .icon {
+      font-size: 1.1rem;
+    }
+  }
+
+  /* Error State Override */
+  &.has-error {
+    label {
+      color: #f43f5e;
+    }
+
+    // Rose 500
+    .modern-input {
+      border-color: rgba(244, 63, 94, 0.5);
+      background: rgba(244, 63, 94, 0.05);
+
+      &:focus {
+        box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.15);
+      }
+    }
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.modern-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
   font-size: 1rem;
-  font-family: inherit;
-}
-input:focus {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(15, 23, 42, 0.6);
+  color: $text-light;
+  font-family: 'Inter', sans-serif;
   outline: none;
-  border-color: #4285f4;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: rgba($text-light, 0.3);
+  }
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 4px rgba($primary-color, 0.2);
+    background: rgba(0, 0, 0, 0.4);
+  }
 }
-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #4285f4;
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+  animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  .error-msg {
+    font-size: 0.8rem;
+    color: #fda4af; // Rose 300
+    font-weight: 500;
+  }
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-family: inherit;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba($primary-color, 0.4);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($primary-color, 0.6);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
-button:hover {
-  background-color: #357ae8;
+
+/* Custom field demo */
+.custom-field-demo {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+
+  .demo-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .icon {
+      font-size: 1.8rem;
+      opacity: 0.8;
+    }
+
+    .demo-text {
+      h3 {
+        margin: 0;
+        font-size: 1rem;
+        color: #f8fafc;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.75rem;
+        color: rgba(248, 250, 252, 0.5);
+        margin-top: 0.2rem;
+      }
+    }
+  }
 }
-button:active {
-  background-color: #2a65c8;
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.error-list {
-  color: red;
-  font-size: 0.875rem;
-  margin: 0.25rem 0 0 0;
-  padding-left: 0;
-  list-style-position: inside;
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.error-list p {
-  margin: 0;
+
+@media (max-width: 640px) {
+  .glass-container {
+    padding: 2rem;
+  }
+
+  .form-header .page-title {
+    font-size: 1.8rem;
+  }
+
+  .glass-form {
+    padding: 1.5rem;
+  }
 }

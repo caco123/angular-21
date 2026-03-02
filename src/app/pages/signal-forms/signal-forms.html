@@ -1,32 +1,68 @@
-<p>signal-forms works!</p>
-<form (submit)="onSubmit($event)">
-    <div>
-        <label>
-            Email:
-            <input type="email" [formField]="loginForm.email" />
-        </label>
-        @if (loginForm.email().touched() && loginForm.email().invalid()) {
-        <ul class="error-list">
-            @for (error of loginForm.email().errors(); track $index) {
-            <li>{{ error.message }}</li>
-            }
-        </ul>
-        }
-    </div>
-    <div>
-        <label>
-            Password:
-            <input type="password" [formField]="loginForm.password" />
-        </label>
-        @if (loginForm.password().touched() && loginForm.password().invalid()) {
-        <div class="error-list">
-            @for (error of loginForm.password().errors(); track $index) {
-            <p>{{ error.message }}</p>
-            }
+<div class="page-container">
+    <div class="glass-container">
+        <div class="form-header">
+            <h1 class="page-title">
+                <span class="gradient-text">Signal Forms</span> Login
+            </h1>
+            <p class="description">
+                Manejo de Formularios Reactivos usando <strong>Signals</strong> nativos y directivas como <code
+                    class="code-badge">[formField]</code>.
+            </p>
         </div>
-        }
+
+        <form class="glass-form" (submit)="onSubmit($event)">
+            <!-- Email Field -->
+            <div class="form-group" [class.has-error]="loginForm.email().touched() && loginForm.email().invalid()">
+                <label>
+                    <span class="icon">📧</span> Email Address
+                </label>
+                <div class="input-wrapper">
+                    <input type="email" class="modern-input" placeholder="correo@ejemplo.com"
+                        [formField]="loginForm.email" />
+                </div>
+
+                @if (loginForm.email().touched() && loginForm.email().invalid()) {
+                <div class="error-container">
+                    @for (error of loginForm.email().errors(); track error.message) {
+                    <span class="error-msg">⚠️ {{ error.message }}</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group"
+                [class.has-error]="loginForm.password().touched() && loginForm.password().invalid()">
+                <label>
+                    <span class="icon">🔒</span> Password
+                </label>
+                <div class="input-wrapper">
+                    <input type="password" class="modern-input" placeholder="••••••••"
+                        [formField]="loginForm.password" />
+                </div>
+
+                @if (loginForm.password().touched() && loginForm.password().invalid()) {
+                <div class="error-container">
+                    @for (error of loginForm.password().errors(); track error.message) {
+                    <span class="error-msg">⚠️ {{ error.message }}</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <button type="submit" class="submit-btn">Login via Signals</button>
+        </form>
+
+        <div class="custom-field-demo">
+            <div class="demo-header">
+                <span class="icon">🧩</span>
+                <div class="demo-text">
+                    <h3>Custom Field Integrado</h3>
+                    <p>La misma instancia del control Email (vía Signal) en un componente externo</p>
+                </div>
+            </div>
+            <app-custom-field [controlAux]="loginForm.email()"></app-custom-field>
+        </div>
+
     </div>
-    <button type="submit">Log In</button>
-</form>
-<!-- ES MÁS CÓMODO USAR LA DIRECTIVA [formField] que ofrece angular que una clase  -->
-<app-custom-field [controlAux]="loginForm.email()"></app-custom-field>
+</div>

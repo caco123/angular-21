@@ -1,11 +1,15 @@
-<p>custom-field works!</p>
-<!-- <input #fieldAux type="text" [value]="value()" (input)="onInput()" /> -->
-<input type="text" (input)="onInput()" />
+<div class="custom-field-wrapper" [class.has-error]="this.controlAux()?.touched() && this.controlAux()?.invalid()">
+    <div class="custom-input-box">
+        <span class="icon">✨</span>
+        <input type="text" class="modern-input" placeholder="Escribe aquí para reflejar en el padre"
+            (input)="onInput()" />
+    </div>
 
-@if (this.controlAux()?.touched() && this.controlAux()?.invalid()) {
-<ul class="error-list">
-    @for (error of this.controlAux()?.errors(); track $index) {
-    <li>{{ error.message }}</li>
+    @if (this.controlAux()?.touched() && this.controlAux()?.invalid()) {
+    <div class="error-container">
+        @for (error of this.controlAux()?.errors(); track error.message) {
+        <span class="error-msg">❌ {{ error.message }}</span>
+        }
+    </div>
     }
-</ul>
-}
+</div>
