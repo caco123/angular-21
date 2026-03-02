@@ -1,4 +1,46 @@
-<form [formGroup]="form">
-    <input formControlName="name" />
-    <input formControlName="email" />
-</form>
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">Route Guards</span> Works!
+        </h1>
+
+        <div class="content-section">
+            <p class="description">
+                Este componente está protegido por un <strong>Guard</strong> (CanDeactivate).
+                Si modificas el formulario y tratas de navegar a otra página, el Guard te pedirá confirmación.
+            </p>
+
+            <div class="guard-demo">
+
+                <div class="status-indicator" [class.is-dirty]="form.dirty">
+                    <span class="icon">{{ form.dirty ? '⚠️' : '✅' }}</span>
+                    <div class="status-text">
+                        <h4>Estado del Formulario</h4>
+                        <p>{{ form.dirty ? 'Modificado (Cambios sin guardar)' : 'Sin Modificar (Navegación libre)' }}
+                        </p>
+                    </div>
+                </div>
+
+                <form [formGroup]="form" class="modern-form">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" formControlName="name" class="modern-input" placeholder="Ej. John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" formControlName="email" class="modern-input"
+                            placeholder="Ej. correo@dominio.com">
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="info-footer">
+                <span class="info-icon">💡</span>
+                <span>Escribe algo arriba y luego intenta clickear en los enlaces del menú principal o retroceder de
+                    página.</span>
+            </div>
+        </div>
+    </div>
+</div>
