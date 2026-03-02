@@ -1,68 +1,13 @@
-$primary-color: #0ea5e9; // Sky 500
-$secondary-color: #10b981; // Emerald 500
-$bg-color: #0f172a; // Slate 900
-$text-light: #f8fafc;
-$glass-bg: rgba(255, 255, 255, 0.05);
-$glass-border: rgba(255, 255, 255, 0.1);
+@use '../pages' as *;
 
-:host {
-    display: block;
-    min-height: 100vh;
-    background-color: $bg-color;
-    background-image:
-        radial-gradient(at 0% 100%, rgba($primary-color, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba($secondary-color, 0.15) 0px, transparent 50%);
-    color: $text-light;
-    font-family: 'Inter', 'Roboto', sans-serif;
-    margin: -8px;
-    padding: 8px;
-}
-
-.page-container {
-    min-height: 100vh;
-    padding: 2rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .glass-container {
-    background: $glass-bg;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid $glass-border;
-    border-radius: 24px;
-    padding: 3rem;
-    width: 100%;
-    max-width: 800px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.page-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin: 0;
-    text-align: center;
-    letter-spacing: -0.025em;
-
-    .gradient-text {
-        background: linear-gradient(135deg, $primary-color, $secondary-color);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
+    max-width: 800px !important;
 }
 
 .content-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
     align-items: center;
+    justify-content: center;
 }
 
 .description {
@@ -118,9 +63,9 @@ $glass-border: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba($primary-color, 0.1));
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba($sky-color, 0.1));
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-left: 4px solid $secondary-color; // Emerald highlight
+    border-left: 4px solid $emerald-color; // Emerald highlight
     border-radius: 16px;
     padding: 1.5rem;
     width: 100%;
@@ -131,7 +76,7 @@ $glass-border: rgba(255, 255, 255, 0.1);
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.5);
-        border-color: rgba($secondary-color, 0.3);
+        border-color: rgba($emerald-color, 0.3);
     }
 }
 
@@ -139,11 +84,11 @@ $glass-border: rgba(255, 255, 255, 0.1);
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    background: linear-gradient(135deg, $primary-color, $secondary-color);
+    background: linear-gradient(135deg, $sky-color, $emerald-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+    box-shadow: 0 5px 15px rgba($sky-color, 0.3);
 
     .avatar-initial {
         font-size: 1.8rem;
@@ -179,27 +124,15 @@ $glass-border: rgba(255, 255, 255, 0.1);
     }
 
     .role-badge {
-        background: rgba($primary-color, 0.2);
+        background: rgba($sky-color, 0.2);
         color: #bae6fd; // Sky 200
-        border: 1px solid rgba($primary-color, 0.3);
+        border: 1px solid rgba($sky-color, 0.3);
     }
 
     .age-badge {
-        background: rgba($secondary-color, 0.2);
+        background: rgba($emerald-color, 0.2);
         color: #a7f3d0; // Emerald 200
-        border: 1px solid rgba($secondary-color, 0.3);
-    }
-}
-
-@keyframes slideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+        border: 1px solid rgba($emerald-color, 0.3);
     }
 }
 
@@ -216,13 +149,6 @@ $glass-border: rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 640px) {
-    .glass-container {
-        padding: 2rem;
-    }
-
-    .page-title {
-        font-size: 2rem;
-    }
 
     .user-card {
         flex-direction: column;

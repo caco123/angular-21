@@ -1,0 +1,322 @@
+$pink-color: #ec4899; // Pink 500
+$orange-color: #f97316; // Orange 500
+$indigo-color: #6366f1; // Indigo
+$purple-color: #a855f7; // Purple
+$emerald-color: #10b981; // Emerald
+$blue-color: #3b82f6; // Blue
+$yellow-color: #eab308; // Yellow 500
+$sky-color: #0ea5e9; // Sky 500
+$cyan-color: #06b6d4; // Cyan 500
+$violet-color: #8b5cf6; // Violet 500
+$rose-color: #f43f5e; // Rose 500
+$teal-color: #14b8a6; // Teal 500
+$fuchsia-color: #d946ef; // Fuchsia 500
+$amber-color: #f59e0b; // Amber 500
+$rose-color-600: #e11d48; // Rose 600
+$lime-color: #84cc16; // Lime 500
+$red-color: #ef4444; // Red 500
+
+
+$bg-color: #0f172a; // Slate 900
+$text-light: #f8fafc;
+$glass-bg: rgba(255, 255, 255, 0.05);
+$glass-border: rgba(255, 255, 255, 0.1);
+
+
+.page {
+    display: block;
+    min-height: 100vh;
+    background-color: $bg-color;
+    color: $text-light;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 2rem;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bg-1 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($indigo-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($purple-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-2 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($emerald-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($blue-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-3 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($cyan-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($violet-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-4 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($yellow-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($sky-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-5 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($rose-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($violet-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-6 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($teal-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($indigo-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-7 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($fuchsia-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($cyan-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-8 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($lime-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($violet-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-9 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($amber-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($rose-color-600, 0.2) 0px, transparent 50%);
+}
+
+.bg-10 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($orange-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($blue-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-11 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($sky-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($emerald-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-12 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($yellow-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($indigo-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-13 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($orange-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($red-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-14 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($pink-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($cyan-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-15 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($violet-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($pink-color, 0.2) 0px, transparent 50%);
+}
+
+.bg-16 {
+    background-image:
+        radial-gradient(at 0% 100%, rgba($violet-color, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($teal-color, 0.2) 0px, transparent 50%);
+}
+
+.glass-container {
+    background: $glass-bg;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid $glass-border;
+    border-radius: 24px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.8s ease;
+}
+
+.glass-card {
+    background: $glass-bg;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid $glass-border;
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-align: center;
+    letter-spacing: -0.025em;
+
+    .gradient-text {
+        background: linear-gradient(135deg, $pink-color, $orange-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.counter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.data-box {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid $glass-border;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .label {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: rgba($text-light, 0.6);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+    }
+
+    .value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $text-light;
+    }
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, rgba($pink-color, 0.1), rgba($orange-color, 0.1));
+    border-color: rgba($pink-color, 0.3);
+
+    &:hover {
+        border-color: rgba($orange-color, 0.5);
+    }
+
+    .value {
+        background: linear-gradient(135deg, $pink-color, $orange-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 2.2rem;
+    }
+}
+
+.modern-btn {
+    background: linear-gradient(135deg, $pink-color, $orange-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba($pink-color, 0.4);
+    align-self: center;
+    width: 100%;
+    max-width: 300px;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba($pink-color, 0.5);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba($text-light, 0.8);
+    text-align: center;
+    margin: 0;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .glass-card {
+        padding: 2rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .glass-container {
+        padding: 2rem;
+    }
+
+    .interactive-box {
+        padding: 2rem;
+    }
+
+    .interactive-text {
+        font-size: 1.5rem;
+    }
+
+    .data-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+}

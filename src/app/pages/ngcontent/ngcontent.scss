@@ -1,76 +1,7 @@
-$primary-color: #f97316; // Orange 500
-$secondary-color: #3b82f6; // Blue 500
-$bg-color: #0f172a; // Slate 900
-$text-light: #f8fafc;
-$glass-bg: rgba(255, 255, 255, 0.05);
-$glass-border: rgba(255, 255, 255, 0.1);
-
-:host {
-    display: block;
-    min-height: 100vh;
-    background-color: $bg-color;
-    background-image:
-        radial-gradient(at 0% 0%, rgba($primary-color, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba($secondary-color, 0.15) 0px, transparent 50%);
-    color: $text-light;
-    font-family: 'Inter', 'Roboto', sans-serif;
-    margin: -8px;
-    padding: 8px;
-}
-
-.page-container {
-    min-height: 100vh;
-    padding: 2rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-}
+@use "../pages.scss" as *;
 
 .glass-container {
-    background: $glass-bg;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid $glass-border;
-    border-radius: 24px;
-    padding: 3rem;
-    width: 100%;
-    max-width: 900px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.page-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin: 0;
-    text-align: center;
-    letter-spacing: -0.025em;
-
-    .gradient-text {
-        background: linear-gradient(135deg, $primary-color, $secondary-color);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-}
-
-.content-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-}
-
-.description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: rgba($text-light, 0.9);
-    text-align: center;
-    margin: 0;
-    max-width: 700px;
+    max-width: 900px !important;
 }
 
 .code-badge {
@@ -131,8 +62,8 @@ $glass-border: rgba(255, 255, 255, 0.1);
     }
 
     &:focus {
-        border-color: rgba($primary-color, 0.5);
-        box-shadow: 0 0 0 3px rgba($primary-color, 0.15);
+        border-color: rgba($orange-color, 0.5);
+        box-shadow: 0 0 0 3px rgba($orange-color, 0.15);
         background: rgba(0, 0, 0, 0.4);
     }
 }
@@ -151,7 +82,7 @@ select.modern-input {
 }
 
 .modern-btn {
-    background: linear-gradient(135deg, $primary-color, $secondary-color);
+    background: linear-gradient(135deg, $orange-color, $blue-color);
     color: white;
     border: none;
     border-radius: 12px;
@@ -160,37 +91,15 @@ select.modern-input {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+    box-shadow: 0 4px 15px rgba($orange-color, 0.3);
     margin-top: 0.5rem;
 
     &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba($primary-color, 0.4);
+        box-shadow: 0 6px 20px rgba($orange-color, 0.4);
     }
 
     &:active {
         transform: translateY(0);
-    }
-}
-
-@keyframes slideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 640px) {
-    .glass-container {
-        padding: 2rem;
-    }
-
-    .page-title {
-        font-size: 2rem;
     }
 }
