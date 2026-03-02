@@ -1,9 +1,23 @@
-<p>signals works!</p>
+<div class="signals-container">
+    <div class="glass-card">
+        <h1 class="page-title">
+            <span class="gradient-text">Signals</span> Works!
+        </h1>
 
-{{ signalExampleVar() }}
+        <div class="content-section">
+            <div class="data-box">
+                <span class="label">Estado de la Señal:</span>
+                <div class="value">{{ signalExampleVar() }}</div>
+            </div>
 
-<pre>
-    {{ person() | json }}
-</pre>
+            <div class="data-box">
+                <span class="label">Datos del Usuario (JSON):</span>
+                <pre class="code-block">{{ person() | json }}</pre>
+            </div>
 
-<button (click)="increaseAge()">Increase Age</button>
+            <button class="modern-btn" (click)="increaseAge()">
+                Aumentar Edad
+            </button>
+        </div>
+    </div>
+</div>
