@@ -1,1 +1,25 @@
-<p appCustomColor [color]="'blue'">directives works!</p>
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">Directives</span> Works!
+        </h1>
+
+        <div class="content-section">
+            <p class="description">
+                Haz clic en el siguiente texto especial para probar la directiva interactiva personalizada <code
+                    class="code-badge">appCustomColor</code>.
+            </p>
+
+            <div class="interactive-box">
+                <h2 class="interactive-text" appCustomColor [color]="'blue'">
+                    ¡Tócame para cambiar mi color!
+                </h2>
+            </div>
+
+            <div class="info-footer">
+                <span class="info-icon">💡</span>
+                <span>Revisa la consola para ver los cambios de estado.</span>
+            </div>
+        </div>
+    </div>
+</div>
