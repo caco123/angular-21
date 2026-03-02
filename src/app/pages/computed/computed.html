@@ -1,4 +1,25 @@
-<p>computed works!</p>
-<button (click)="increment()">Increment</button>
-<p>Count: {{ count() }}</p>
-<p> {{ doubleCount() }}</p>
+<div class="computed-container">
+    <div class="glass-card">
+        <h1 class="page-title">
+            <span class="gradient-text">Computed</span> Works!
+        </h1>
+
+        <div class="content-section">
+            <div class="counter-grid">
+                <div class="data-box">
+                    <span class="label">Simple Signal</span>
+                    <div class="value">{{ count() }}</div>
+                </div>
+
+                <div class="data-box highlight-box">
+                    <span class="label">Computed Signal</span>
+                    <div class="value">{{ doubleCount() }}</div>
+                </div>
+            </div>
+
+            <button class="modern-btn" (click)="increment()">
+                Incrementar Valor
+            </button>
+        </div>
+    </div>
+</div>
