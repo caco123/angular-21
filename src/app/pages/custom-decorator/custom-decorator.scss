@@ -1,0 +1,302 @@
+$primary-color: #8b5cf6; // Violet 500
+$secondary-color: #14b8a6; // Teal 500
+$bg-color: #0f172a; // Slate 900
+$text-light: #f8fafc;
+$glass-bg: rgba(255, 255, 255, 0.05);
+$glass-border: rgba(255, 255, 255, 0.1);
+
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: $bg-color;
+    background-image:
+        radial-gradient(at 0% 0%, rgba($primary-color, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba($secondary-color, 0.15) 0px, transparent 50%);
+    color: $text-light;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    margin: -8px;
+    padding: 8px;
+}
+
+.page-container {
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-container {
+    background: $glass-bg;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid $glass-border;
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.form-header {
+    text-align: center;
+
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin: 0 0 1rem 0;
+        letter-spacing: -0.025em;
+
+        .gradient-text {
+            background: linear-gradient(135deg, $primary-color, $secondary-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+
+    .description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: rgba($text-light, 0.8);
+        margin: 0;
+        max-width: 700px;
+        display: inline-block;
+    }
+}
+
+.code-badge {
+    background: rgba(15, 23, 42, 0.6);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Fira Code', monospace;
+    color: #c084fc; // Purple 400
+    font-size: 0.85em;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.panel-card {
+    background: rgba(15, 23, 42, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &.full-width {
+        grid-column: 1 / -1;
+    }
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+
+    .icon {
+        font-size: 1.8rem;
+    }
+
+    .header-titles {
+        h2 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #f8fafc;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: rgba(248, 250, 252, 0.6);
+            margin-top: 0.2rem;
+        }
+    }
+}
+
+.panel-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &.flex-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.action-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-wrapper {
+    width: 100%;
+}
+
+.modern-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.2);
+    color: $text-light;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+
+    &::placeholder {
+        color: rgba($text-light, 0.3);
+    }
+
+    &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 4px rgba($primary-color, 0.2);
+        background: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.hint-text {
+    font-size: 0.75rem;
+    color: rgba($text-light, 0.4);
+    font-style: italic;
+    margin-top: -0.25rem;
+}
+
+/* Data Display for Timer */
+.data-display {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .api-url {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        font-family: 'Fira Code', monospace;
+        color: #2dd4bf; // Teal 400
+        font-size: 0.9rem;
+        border-left: 3px solid #2dd4bf;
+        word-break: break-all;
+    }
+}
+
+/* User Badge for Toggler */
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+    border-radius: 50px;
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 800;
+    }
+
+    .name {
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+}
+
+
+/* Common Buttons */
+.modern-btn {
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &.btn-primary {
+        background: linear-gradient(135deg, $primary-color, #c084fc);
+        box-shadow: 0 4px 15px rgba($primary-color, 0.4);
+    }
+
+    &.btn-secondary {
+        background: linear-gradient(135deg, $secondary-color, #2dd4bf);
+        box-shadow: 0 4px 15px rgba($secondary-color, 0.4);
+    }
+
+    &.btn-outline {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .glass-container {
+        padding: 2rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .panel-body.flex-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+}

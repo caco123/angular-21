@@ -1,12 +1,74 @@
-<p>custom-decorator works!</p>
+<div class="page-container">
+    <div class="glass-container">
+        <div class="form-header">
+            <h1 class="page-title">
+                <span class="gradient-text">Custom Decorators</span> Works!
+            </h1>
+            <p class="description">
+                Demostración del poder de <strong>TypeScript Decorators</strong> personalizados (Método y Clase) en
+                Angular. Abre la <strong>Consola (F12)</strong> para ver los registros generados.
+            </p>
+        </div>
 
-<form>
-    <label for="email">Email:</label>
-    <input #emailInput type="text" id="email">
-    <button type="submit" (click)="login(emailInput.value)">Login</button>
-</form>
+        <div class="dashboard-grid">
+            <!-- Decorador de Validación -->
+            <div class="panel-card validate-panel">
+                <div class="panel-header">
+                    <span class="icon">🛡️</span>
+                    <div class="header-titles">
+                        <h2 class="panel-title">@ValidateEmail</h2>
+                        <p>Intercepta los argumentos del método y valida.</p>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form class="action-form" (submit)="$event.preventDefault(); login(emailInput.value)">
+                        <div class="input-wrapper">
+                            <input #emailInput type="text" id="email" class="modern-input"
+                                placeholder="correo@ejemplo.com">
+                        </div>
+                        <button type="submit" class="modern-btn btn-primary">Login</button>
+                    </form>
+                    <span class="hint-text">* Ingresa un email falso para lanzar un Error (ver consola)</span>
+                </div>
+            </div>
 
-<br>
-<p>Nombre: {{ personName }}</p> <button type="button" (click)="toggleName()">Actualizar Nombre</button>
-<br>
-<button type="button" (click)="fetchData()">Obtener Datos</button>
+            <!-- Decorador de Temporizador -->
+            <div class="panel-card timer-panel">
+                <div class="panel-header">
+                    <span class="icon">⏱️</span>
+                    <div class="header-titles">
+                        <h2 class="panel-title">@timer</h2>
+                        <p>Mide el tiempo de ejecución de un fetch HTTP.</p>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="data-display">
+                        <span class="api-url">GET /todos/1</span>
+                        <button type="button" class="modern-btn btn-secondary" (click)="fetchData()">Obtener
+                            Datos</button>
+                    </div>
+                    <span class="hint-text">* Ejecuta la request e inspecciona la consola.</span>
+                </div>
+            </div>
+
+            <!-- Ejemplo de UI Genérica Adicional -->
+            <div class="panel-card general-panel full-width">
+                <div class="panel-header">
+                    <span class="icon">👤</span>
+                    <div class="header-titles">
+                        <h2 class="panel-title">Cambio de Estado + @unsubscribe()</h2>
+                        <p>Interactúa para ver cambios en la UI.</p>
+                    </div>
+                </div>
+                <div class="panel-body flex-row">
+                    <div class="user-badge">
+                        <span class="avatar">{{ personName ? personName.charAt(0) : '?' }}</span>
+                        <span class="name">{{ personName || 'N/A' }}</span>
+                    </div>
+                    <button type="button" class="modern-btn btn-outline" (click)="toggleName()">Actualizar
+                        Nombre</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
