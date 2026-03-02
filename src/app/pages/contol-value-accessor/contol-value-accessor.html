@@ -1,12 +1,65 @@
-<h2>Control Value Accessor Parent</h2>
-<div style="padding: 20px; border: 1px solid #ccc;">
-    <h3>Child Component:</h3>
-    <app-child-input [formControl]="control"></app-child-input>
-</div>
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">ControlValueAccessor</span> Works!
+        </h1>
 
-<div style="margin-top: 20px;">
-    <h3>Value in Parent:</h3>
-    <pre>{{ control.value | json }}</pre>
-    <button (click)="control.disable()">Disable</button>
-    <button (click)="control.enable()">Enable</button>
+        <div class="content-section">
+            <p class="description">
+                Implementando <code class="code-badge">ControlValueAccessor</code> para crear un componente hijo (input)
+                que se integra de manera nativa con los <code class="code-badge">Forms</code> de Angular.
+            </p>
+
+            <div class="dashboard-grid">
+
+                <!-- Parent Container (Left) -->
+                <div class="panel-card parent-panel">
+                    <div class="panel-header">
+                        <span class="icon">👨‍👦</span>
+                        <div class="header-titles">
+                            <h2 class="panel-title">Componente Padre</h2>
+                            <p>Manejando el FormControl</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-content">
+                        <div class="data-row">
+                            <span class="label">Control Value:</span>
+                            <span class="value string-value">"{{ control.value }}"</span>
+                        </div>
+
+                        <div class="data-row">
+                            <span class="label">State:</span>
+                            <span class="value state-badge" [class.disabled]="control.disabled">
+                                {{ control.disabled ? 'DISABLED' : 'ENABLED' }}
+                            </span>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="modern-btn btn-primary" (click)="control.enable()"
+                                [disabled]="!control.disabled">Enable</button>
+                            <button class="modern-btn btn-danger" (click)="control.disable()"
+                                [disabled]="control.disabled">Disable</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Child Component Area (Right) -->
+                <div class="panel-card child-panel">
+                    <div class="panel-header">
+                        <span class="icon">🧩</span>
+                        <div class="header-titles">
+                            <h2 class="panel-title">Componente Hijo</h2>
+                            <p>&lt;app-child-input&gt;</p>
+                        </div>
+                    </div>
+
+                    <div class="child-content">
+                        <app-child-input [formControl]="control"></app-child-input>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

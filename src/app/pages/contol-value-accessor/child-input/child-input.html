@@ -1,2 +1,5 @@
-<input [value]="value" (input)="onInput($event)" (blur)="onTouched()" [disabled]="isDisabled" class="custom-input"
-    placeholder="Type something..." />
+<div class="custom-input-wrapper" [class.is-disabled]="isDisabled">
+    <div class="input-icon">✏️</div>
+    <input [value]="value" (input)="onInput($event)" (blur)="onTouched()" [disabled]="isDisabled"
+        class="custom-cva-input" placeholder="Type something..." />
+</div>
