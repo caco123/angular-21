@@ -1,2 +1,37 @@
-<p>effects works!</p>
-<button (click)="updatePerson()">Update Person</button>
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">Effects</span> Works!
+        </h1>
+
+        <div class="content-section">
+            <p class="description">
+                Haz clic en el botón para actualizar el usuario global. Un <code class="code-badge">effect()</code>
+                reaccionará al cambio del <strong>Signal</strong> y lo imprimirá en la consola.
+            </p>
+
+            <div class="interactive-box">
+                <div class="user-data">
+                    <!-- Although the original doesn't show the person data on screen, adding it significantly improves the visual feedback -->
+                    <div class="data-row">
+                        <span class="data-label">Nombre:</span>
+                        <span class="data-value">John Doe</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Edad (Global):</span>
+                        <span class="data-value highlight">Haz clic para actualizar...</span>
+                    </div>
+                </div>
+
+                <button class="modern-btn" (click)="updatePerson()">
+                    Aumentar Edad (Global)
+                </button>
+            </div>
+
+            <div class="info-footer">
+                <span class="info-icon">💡</span>
+                <span>Abre las DevTools (F12) y revisa la consola para ver los logs del <em>effect</em>.</span>
+            </div>
+        </div>
+    </div>
+</div>
