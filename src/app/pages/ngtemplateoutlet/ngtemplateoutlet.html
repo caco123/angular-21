@@ -1,9 +1,37 @@
-<p>ngtemplateoutlet works!</p>
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">NgTemplateOutlet</span> Works!
+        </h1>
 
-<ng-container [ngTemplateOutlet]="myTemplate" [ngTemplateOutletContext]="{user: {name: 'John', age: 30}}">
-</ng-container>
+        <div class="content-section">
+            <p class="description">
+                Inyectando plantillas de forma dinámica con <code class="code-badge">[ngTemplateOutlet]</code> y pasando
+                un objeto de contexto (<code class="code-badge">user</code>) hacia el template.
+            </p>
 
+            <div class="template-renderer">
+                <!-- Renderizado dinámico -->
+                <ng-container [ngTemplateOutlet]="myTemplate"
+                    [ngTemplateOutletContext]="{ user: { name: 'John Doe', age: 30, role: 'Developer' } }"></ng-container>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Plantilla Base (oculta hasta ser llamada) -->
 <ng-template #myTemplate let-user="user">
-    <p>Name: {{user.name}}</p>
-    <p>Age: {{user.age}}</p>
+    <div class="user-card">
+        <div class="avatar-circle">
+            <span class="avatar-initial">{{ user.name.charAt(0) }}</span>
+        </div>
+        <div class="user-info">
+            <h3>{{ user.name }}</h3>
+            <div class="user-meta">
+                <span class="badge role-badge">{{ user.role || 'User' }}</span>
+                <span class="badge age-badge">{{ user.age }} años</span>
+            </div>
+        </div>
+    </div>
 </ng-template>

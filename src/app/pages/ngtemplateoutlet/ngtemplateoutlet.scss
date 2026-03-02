@@ -1,0 +1,235 @@
+$primary-color: #0ea5e9; // Sky 500
+$secondary-color: #10b981; // Emerald 500
+$bg-color: #0f172a; // Slate 900
+$text-light: #f8fafc;
+$glass-bg: rgba(255, 255, 255, 0.05);
+$glass-border: rgba(255, 255, 255, 0.1);
+
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: $bg-color;
+    background-image:
+        radial-gradient(at 0% 100%, rgba($primary-color, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba($secondary-color, 0.15) 0px, transparent 50%);
+    color: $text-light;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    margin: -8px;
+    padding: 8px;
+}
+
+.page-container {
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-container {
+    background: $glass-bg;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid $glass-border;
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-align: center;
+    letter-spacing: -0.025em;
+
+    .gradient-text {
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba($text-light, 0.9);
+    text-align: center;
+    margin: 0;
+    max-width: 650px;
+}
+
+.code-badge {
+    background: rgba(15, 23, 42, 0.6);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Fira Code', monospace;
+    color: #7dd3fc; // Sky 300
+    font-size: 0.9em;
+}
+
+/* Template Renderer Area */
+.template-renderer {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+        content: 'Área de Proyección';
+        position: absolute;
+        top: -0.75rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1e293b;
+        padding: 0 1rem;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: rgba($text-light, 0.5);
+        border-radius: 20px;
+        border: 1px dashed rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* User Card Template */
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba($primary-color, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid $secondary-color; // Emerald highlight
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 100%;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.5);
+        border-color: rgba($secondary-color, 0.3);
+    }
+}
+
+.avatar-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $primary-color, $secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+
+    .avatar-initial {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: white;
+    }
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h3 {
+        margin: 0;
+        font-size: 1.4rem;
+        color: $text-light;
+        font-weight: 700;
+    }
+}
+
+.user-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    .badge {
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        backdrop-filter: blur(4px);
+    }
+
+    .role-badge {
+        background: rgba($primary-color, 0.2);
+        color: #bae6fd; // Sky 200
+        border: 1px solid rgba($primary-color, 0.3);
+    }
+
+    .age-badge {
+        background: rgba($secondary-color, 0.2);
+        color: #a7f3d0; // Emerald 200
+        border: 1px solid rgba($secondary-color, 0.3);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 640px) {
+    .glass-container {
+        padding: 2rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .user-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user-meta {
+        justify-content: center;
+    }
+}
