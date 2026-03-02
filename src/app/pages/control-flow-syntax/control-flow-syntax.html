@@ -1,39 +1,54 @@
-<div class="users-list">
-    @for (user of users; track $index) {
-    <div class="user">
-        <img [src]="user.img" alt="">
-        <h2>{{ user.name }}</h2>
-        @if (user.age > 30) {
-        <p>Adult</p>
-        } @else {
-        <p>Minor</p>
-        }
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">Control Flow</span> Syntax
+        </h1>
 
-        @switch (user.occupation) {
-        @case (occupations.Doctor) {
-        <p [style.color]="color[user.occupation]">Doctor</p>
-        }
-        @case (occupations.Engineer) {
-        <p [style.color]="color[user.occupation]">Engineer</p>
-        }
-        @case (occupations.Lawyer) {
-        <p [style.color]="color[user.occupation]">Lawyer</p>
-        }
-        @case (occupations.Other) {
-        <p [style.color]="color[user.occupation]">Other</p>
-        }
-        @case (occupations.Student) {
-        <p [style.color]="color[user.occupation]">Student</p>
-        }
-        @case (occupations.Teacher) {
-        <p [style.color]="color[user.occupation]">Teacher</p>
-        }
-        @default {
-        <p [style.color]="'red'">Unknown</p>
-        }
-        }
+        <div class="users-grid">
+            @for (user of users; track $index) {
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img [src]="user.img" alt="{{ user.name }} profile" class="profile-img">
+                    <h2 class="profile-name">{{ user.name }}</h2>
+                </div>
+
+                <div class="badges-container">
+                    @if (user.age > 30) {
+                    <span class="badge adult-badge">Adulto ({{ user.age }})</span>
+                    } @else {
+                    <span class="badge minor-badge">Joven ({{ user.age }})</span>
+                    }
+
+                    @switch (user.occupation) {
+                    @case (occupations.Doctor) {
+                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Doctor</span>
+                    }
+                    @case (occupations.Engineer) {
+                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Engineer</span>
+                    }
+                    @case (occupations.Lawyer) {
+                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Lawyer</span>
+                    }
+                    @case (occupations.Other) {
+                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Other</span>
+                    }
+                    @case (occupations.Student) {
+                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Student</span>
+                    }
+                    @case (occupations.Teacher) {
+                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Teacher</span>
+                    }
+                    @default {
+                    <span class="badge" [style.backgroundColor]="'#ef4444'">Unknown</span>
+                    }
+                    }
+                </div>
+            </div>
+            } @empty {
+            <div class="empty-state">
+                <p>No se encontraron usuarios</p>
+            </div>
+            }
+        </div>
     </div>
-    } @empty {
-    <p>No users found</p>
-    }
 </div>
