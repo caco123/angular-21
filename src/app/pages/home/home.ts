@@ -9,5 +9,13 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.scss',
 })
 export default class Home {
-  pagesRoutes = pagesRoutes
+  pagesRoutes = pagesRoutes.filter(route => route.path !== '**' && route.path !== '');
+
+  formatRouteName(path: string | undefined): string {
+    if (!path) return 'Únknown Feature';
+    return path
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
 } 

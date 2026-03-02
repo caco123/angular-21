@@ -1,3 +1,224 @@
-a {
-    text-transform: capitalize;
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #0f172a; /* Slate 900 */
+  color: #f8fafc; /* Slate 50 */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  
+  /* Angular gradient colors */
+  --ng-red: #dd0031;
+  --ng-pink: #ff3a5e;
+  --ng-gradient: linear-gradient(135deg, var(--ng-red), var(--ng-pink));
+  
+  /* Glassmorphism tokens */
+  --glass-bg: rgba(30, 41, 59, 0.4); /* Slate 800 with opacity */
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  
+  /* Subtle background glow effect */
+  &::before {
+    content: '';
+    position: fixed;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(221,0,49,0.15) 0%, rgba(15,23,42,0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  animation: fadeInDown 0.8s ease-out forwards;
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .angular-logo {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 0 20px rgba(221, 0, 49, 0.4));
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    margin: 0;
+    line-height: 1.1;
+
+    .highlight {
+      background: var(--ng-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: #94a3b8; /* Slate 400 */
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  opacity: 0; /* will be faded in */
+}
+
+/* Glassmorphism Route Card */
+.route-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+
+  /* Glossy highlight line on top */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    opacity: 0.5;
+  }
+
+  &:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 58, 94, 0.3);
+    background: rgba(30, 41, 59, 0.6);
+    
+    .card-icon {
+      background: var(--ng-gradient);
+      color: white;
+      transform: scale(1.1) rotate(10deg);
+    }
+    
+    .card-arrow {
+      color: var(--ng-pink);
+      transform: translateX(5px);
+    }
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--ng-red);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .card-path {
+    font-size: 0.875rem;
+    color: #64748b; /* Slate 500 */
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    transition: color 0.3s ease;
+  }
+
+  .card-arrow {
+    display: flex;
+    align-items: center;
+    color: #475569; /* Slate 600 */
+    transition: all 0.3s ease;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1.5rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
 }
