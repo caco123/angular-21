@@ -1,8 +1,49 @@
-.sidebar {
-    border: 1px solid #ccc;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 100vh;
+.child-widget {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(59, 130, 246, 0.15));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    .icon {
+        font-size: 2rem;
+        filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.5));
+    }
+
+    .header-text {
+        h3 {
+            margin: 0;
+            color: #f8fafc;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0;
+            color: rgba(248, 250, 252, 0.6);
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+        }
+    }
+}
+
+.projected-area {
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.1);
+
+    /* Adds a subtle dashed border internally to emphasize where the projection lives */
+    border: 1px dashed rgba(255, 255, 255, 0.05);
+    margin: 1rem;
+    border-radius: 16px;
 }

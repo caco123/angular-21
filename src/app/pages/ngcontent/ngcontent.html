@@ -1,8 +1,44 @@
-<p>ngcontent works!</p>
-<app-child>
-    <form form-area [formGroup]="form" (ngSubmit)="onSubmit()">
-        <input type="text" formControlName="name">
-        <input type="text" formControlName="email">
-        <button type="submit">Submit</button>
-    </form>
-</app-child>
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">Ng-Content</span> Works!
+        </h1>
+
+        <div class="content-section">
+            <p class="description">
+                Utilizando <code class="code-badge">&lt;ng-content select="[form-area]"&gt;</code> podemos proyectar
+                plantillas y formularios enteros dentro de un componente hijo (Sidebar).
+            </p>
+
+            <div class="projection-demo">
+                <app-child>
+                    <form form-area [formGroup]="form" (ngSubmit)="onSubmit()" class="modern-form">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" formControlName="name" class="modern-input" placeholder="Ej. John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" formControlName="email" class="modern-input"
+                                placeholder="Ej. correo@dominio.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select formControlName="gender" class="modern-input">
+                                <option value="null" disabled selected>Seleccione</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                                <option value="O">Other</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="modern-btn">Submit Form (to Console)</button>
+                    </form>
+                </app-child>
+            </div>
+
+        </div>
+    </div>
+</div>

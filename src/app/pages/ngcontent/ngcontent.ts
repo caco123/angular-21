@@ -13,6 +13,7 @@ export class Ngcontent {
 
   form = this.fb.group({
     name: [],
+    email: [],
     age: [],
     gender: [],
   });

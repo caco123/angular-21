@@ -1,4 +1,13 @@
-<div class="sidebar">
-    <p>sidebar!</p>
-    <ng-content select="[form-area]"></ng-content>
+<div class="child-widget">
+    <div class="widget-header">
+        <span class="icon">🧩</span>
+        <div class="header-text">
+            <h3>Componente Hijo (Sidebar)</h3>
+            <p>Contenido debajo inyectado externamente (Proyección)</p>
+        </div>
+    </div>
+
+    <div class="projected-area">
+        <ng-content select="[form-area]"></ng-content>
+    </div>
 </div>
