@@ -1,1 +1,43 @@
-<p>inteceptors works!</p>
+<div class="page-container">
+    <div class="glass-container">
+        <h1 class="page-title">
+            <span class="gradient-text">Interceptors</span> Works!
+        </h1>
+
+        <div class="content-section">
+            <p class="description">
+                Este componente ejecuta dos peticiones HTTP concurrentes al inicializar (<code
+                    class="code-badge">ngOnInit</code>) para demostrar el uso de <strong>Interceptors</strong>.
+            </p>
+
+            <div class="requests-grid">
+                <div class="request-card intercept-active">
+                    <div class="card-header">
+                        <span class="icon">🛡️</span>
+                        <h3>Petición 1: Interceptor Activo</h3>
+                    </div>
+                    <p class="card-desc">Llama a una ruta inexistente. El <code
+                            class="code-badge">http-error-interceptor</code> interceptará el error globalmente.</p>
+                    <div class="url-badge">GET /posts_wrong</div>
+                </div>
+
+                <div class="request-card intercept-skipped">
+                    <div class="card-header">
+                        <span class="icon">⏭️</span>
+                        <h3>Petición 2: Interceptor Omitido</h3>
+                    </div>
+                    <p class="card-desc">Utiliza <code class="code-badge">HttpContext</code> para pasar el token <code
+                            class="code-badge">SKIP_ERROR_INTERCEPTOR</code>, gestionando el error localmente en el
+                        componente.</p>
+                    <div class="url-badge">GET /pokemon/ditto_wrong</div>
+                </div>
+            </div>
+
+            <div class="info-footer">
+                <span class="info-icon">💻</span>
+                <span>Abre la consola (F12) para revisar cómo se manejaron las respuestas de error de ambas
+                    peticiones.</span>
+            </div>
+        </div>
+    </div>
+</div>
