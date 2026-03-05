@@ -7,6 +7,6 @@ import { SplitPipe } from '../../pipes/split-pipe';
   templateUrl: './pipes.html',
   styleUrl: './pipes.scss',
 })
-export class Pipes {
+export class PipePage {
   angular = "Angular 21";
 }

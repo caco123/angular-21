@@ -16,10 +16,10 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
 @Component({
   selector: 'app-resources',
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './resources.html',
-  styleUrl: './resources.scss',
+  templateUrl: './resources-page.html',
+  styleUrl: './resources-page.scss',
 })
-export class Resources implements OnInit {
+export class ResourcesPage implements OnInit {
 
   query = signal<string>('');
   nameFormControl = new FormControl<string>('');

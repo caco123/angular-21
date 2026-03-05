@@ -5,7 +5,7 @@ import { formDirtyGuard } from '../guards/form-dirty-guard';
 export const pagesRoutes: Routes = [
     {
         path: 'hooks',
-        loadComponent: () => import('./hooks/hooks').then((m) => m.Hooks)
+        loadComponent: () => import('./hooks-page/hooks-page').then((m) => m.HooksPage)
     },
     {
         path: 'signals',
@@ -29,7 +29,7 @@ export const pagesRoutes: Routes = [
     },
     {
         path: 'pipes',
-        loadComponent: () => import('./pipes/pipes').then((m) => m.Pipes)
+        loadComponent: () => import('./pipe-page/pipes').then((m) => m.PipePage)
     },
     {
         path: 'interceptors',
@@ -41,7 +41,7 @@ export const pagesRoutes: Routes = [
     },
     {
         path: 'resources',
-        loadComponent: () => import('./resources/resources').then((m) => m.Resources)
+        loadComponent: () => import('./resources-page/resources-page').then((m) => m.ResourcesPage)
     },
     {
         path: 'linked-signals',
@@ -69,12 +69,16 @@ export const pagesRoutes: Routes = [
         path: 'control-value-accessor',
         loadComponent: () => import('./contol-value-accessor/contol-value-accessor').then((m) => m.ContolValueAccessor)
     },
-     {
+    {
         path: 'signal-forms',
         loadComponent: () => import('./signal-forms/signal-forms').then((m) => m.SignalForms)
-     },
-     {
+    },
+    {
         path: 'custom-decorator',
         loadComponent: () => import('./custom-decorator/custom-decorator').then((m) => m.CustomDecorator)
-     }
+    },
+    {
+        path: 'rxjs',
+        loadComponent: () => import('./rxjs-page/rxjs-page').then((m) => m.RxjsPage)
+    }
 ];

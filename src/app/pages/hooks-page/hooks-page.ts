@@ -5,12 +5,12 @@ import { Changes } from './ngChanges/ngChanges';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-hooks',
+  selector: 'app-hooks-page',
   imports: [Changes, FormsModule],
-  templateUrl: './hooks.html',
-  styleUrl: './hooks.scss',
+  templateUrl: './hooks-page.html',
+  styleUrl: './hooks-page.scss',
 })
-export class Hooks implements OnInit, OnDestroy, AfterViewInit {
+export class HooksPage implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('child') child!: Changes;
   changeComponente = viewChild.required(Changes);
 

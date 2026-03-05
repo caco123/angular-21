@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Resources } from './resources';
+import { RxjsPage } from './rxjs-page';
 
-describe('Resources', () => {
-  let component: Resources;
-  let fixture: ComponentFixture<Resources>;
+describe('Rxjs', () => {
+  let component: RxjsPage;
+  let fixture: ComponentFixture<RxjsPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Resources]
+      imports: [RxjsPage]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(Resources);
+    fixture = TestBed.createComponent(RxjsPage);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
