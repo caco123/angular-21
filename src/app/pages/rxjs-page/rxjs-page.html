@@ -1,1 +1,130 @@
-<p>rxjs works!</p>
+<main class="page bg-14">
+    <div class="glass-card full-width">
+        <h1 class="page-title"><span class="gradient-text">RxJS Operators</span></h1>
+        <p class="description">Presiona cada botón y revisa la <b>consola del navegador</b> para observar el
+            comportamiento interactivo de los operadores.</p>
+
+        <div class="operators-grid">
+            <!-- 1. Retry -->
+            <div class="data-box operator-card">
+                <h3 class="label">1. Retry</h3>
+                <p class="operator-desc">Reintenta automáticamente una petición fallida un número específico de veces
+                    antes de emitir un error definitivo.</p>
+                <button class="modern-btn small-btn" (click)="retryOperator()">Probar Retry</button>
+            </div>
+
+            <!-- 2. Map -->
+            <div class="data-box operator-card">
+                <h3 class="label">2. Map</h3>
+                <p class="operator-desc">Transforma cada valor emitido por el observable original según una función
+                    determinada, similar al map de arrays.</p>
+                <button class="modern-btn small-btn" (click)="mapOperator()">Probar Map</button>
+            </div>
+
+            <!-- 3. Filter -->
+            <div class="data-box operator-card">
+                <h3 class="label">3. Filter</h3>
+                <p class="operator-desc">Permite que solo pasen los valores del observable que cumplen con una condición
+                    o predicado específico.</p>
+                <button class="modern-btn small-btn" (click)="filterOperator()">Probar Filter</button>
+            </div>
+
+            <!-- 4. Tap -->
+            <div class="data-box operator-card">
+                <h3 class="label">4. Tap</h3>
+                <p class="operator-desc">Ejecuta código paralelo (efectos secundarios) como logs o debuggers sin
+                    modificar ni alterar el flujo de datos original.</p>
+                <button class="modern-btn small-btn" (click)="tapOperator()">Probar Tap</button>
+            </div>
+
+            <!-- 5. SwitchMap -->
+            <div class="data-box operator-card">
+                <h3 class="label">5. SwitchMap</h3>
+                <p class="operator-desc">Cancela y descarta peticiones previas pendientes si llega una nueva. Ideal para
+                    barras de búsqueda asíncronas.</p>
+                <button class="modern-btn small-btn" (click)="switchMapOperator()">Probar SwitchMap</button>
+            </div>
+
+            <!-- 6. MergeMap -->
+            <div class="data-box operator-card">
+                <h3 class="label">6. MergeMap</h3>
+                <p class="operator-desc">Ejecuta múltiples suscripciones concurrentes en paralelo sin preocuparse por el
+                    orden de llegada o cancelar anteriores.</p>
+                <button class="modern-btn small-btn" (click)="mergeMapOperator()">Probar MergeMap</button>
+            </div>
+
+            <!-- 7. ConcatMap -->
+            <div class="data-box operator-card">
+                <h3 class="label">7. ConcatMap</h3>
+                <p class="operator-desc">Ejecuta las peticiones de forma ordenada y estrictamente secuencial, esperando
+                    a que una termine para comenzar la siguiente.</p>
+                <button class="modern-btn small-btn" (click)="concatMapOperator()">Probar ConcatMap</button>
+            </div>
+
+            <!-- 8. ExhaustMap -->
+            <div class="data-box operator-card">
+                <h3 class="label">8. ExhaustMap</h3>
+                <p class="operator-desc">Ignora nuevas peticiones mientras haya alguna en curso. Perfecto para evitar el
+                    "doble click" en botones (como Login).</p>
+                <button class="modern-btn small-btn" (click)="exhaustMapOperator()">Probar ExhaustMap</button>
+            </div>
+
+            <!-- 9. CatchError -->
+            <div class="data-box operator-card">
+                <h3 class="label">9. CatchError</h3>
+                <p class="operator-desc">Atrapa y maneja un error en el flujo del Observable, permitiendo devolver un
+                    valor por defecto o lanzar otro error.</p>
+                <button class="modern-btn small-btn" (click)="catchErrorOperator()">Probar CatchError</button>
+            </div>
+
+            <!-- 10. Take -->
+            <div class="data-box operator-card">
+                <h3 class="label">10. Take</h3>
+                <p class="operator-desc">Limita el observable para que solo emita un número específico (N) de valores,
+                    completando la suscripción después.</p>
+                <button class="modern-btn small-btn" (click)="takeOperator()">Probar Take</button>
+            </div>
+
+            <!-- 11. TakeUntil -->
+            <div class="data-box operator-card">
+                <h3 class="label">11. TakeUntil</h3>
+                <p class="operator-desc">Completa el observable y libera la subscripción de inmediato cuando un segundo
+                    observable (como un <i>Subject</i>) emite un valor.</p>
+                <button class="modern-btn small-btn" (click)="takeUntilOperator()">Probar TakeUntil</button>
+            </div>
+
+            <!-- 12. DebounceTime -->
+            <div class="data-box operator-card">
+                <h3 class="label">12. DebounceTime</h3>
+                <p class="operator-desc">Retrasa la emisión de valores descartando eventos rápidos. Solo se activa tras
+                    cumplirse un tiempo de "silencio".</p>
+                <button class="modern-btn small-btn" (click)="debounceTimeOperator()">Probar DebounceTime</button>
+            </div>
+
+            <!-- 13. TakeUntilDestroyed -->
+            <div class="data-box operator-card">
+                <h3 class="label">13. TakeUntilDestroyed</h3>
+                <p class="operator-desc">Operador de Angular que maneja automáticamente el ciclo de vida limpiando
+                    (completando) sus observables al destruirse el componente.</p>
+                <button class="modern-btn small-btn" (click)="takeUntilDestroyedOperator()">Probar
+                    TakeUntilDestroyed</button>
+            </div>
+
+            <!-- 14. ForkJoin -->
+            <div class="data-box operator-card">
+                <h3 class="label">14. ForkJoin</h3>
+                <p class="operator-desc">Ejecuta observables en paralelo y emite un único valor final cuando
+                    <b>todos</b> se hayan completado. Útil para peticiones HTTP simultáneas.</p>
+                <button class="modern-btn small-btn" (click)="forkJoinOperator()">Probar ForkJoin</button>
+            </div>
+
+            <!-- 15. CombineLatest -->
+            <div class="data-box operator-card">
+                <h3 class="label">15. CombineLatest</h3>
+                <p class="operator-desc">Combina múltiples observables y emite un array con el último valor de cada uno
+                    cada vez que <b>alguno</b> de ellos emite (luego de que todos emitan al menos una vez).</p>
+                <button class="modern-btn small-btn" (click)="combineLatestOperator()">Probar CombineLatest</button>
+            </div>
+        </div>
+    </div>
+</main>
