@@ -5,9 +5,20 @@
         </h1>
 
         <div class="content-section">
+            <div class="info-footer" style="margin-bottom: 2rem;">
+                <span class="info-icon">💡</span>
+                <span style="font-size: 1.25em; line-height: 1.6;">
+                    Los <strong>Interceptores HTTP</strong> en Angular actúan como un <em>middleware</em> entre tu
+                    aplicación y el backend. Permiten inspeccionar y modificar peticiones salientes y respuestas
+                    entrantes de manera global. Son extremadamente útiles para tareas como: adjuntar tokens de
+                    autenticación (JWT), manejo centralizado de errores globales, mostrar indicadores de carga en toda
+                    la app, o añadir cabeceras comunes a todas las peticiones.
+                </span>
+            </div>
+
             <p class="description">
-                Este componente ejecuta dos peticiones HTTP concurrentes al inicializar (<code
-                    class="code-badge">ngOnInit</code>) para demostrar el uso de <strong>Interceptors</strong>.
+                A continuación, este componente ejecuta dos peticiones HTTP concurrentes al inicializar (<code
+                    class="code-badge">ngOnInit</code>) para demostrar su funcionamiento en la práctica:
             </p>
 
             <div class="requests-grid">
