@@ -8,19 +8,16 @@ import { FieldTree, FormField, FormValueControl, ValidationError, WithOptionalFi
   styleUrl: './custom-field.scss',
 })
 
-//implements FormValueControl<unknown> 
-export class CustomField {
-  // fieldAux = viewChild.required('fieldAux', { read: ElementRef<HTMLInputElement> });
+export class CustomField implements FormValueControl<string> {
+  value = model<string>('');
+  touched = model<boolean>(false);
+  errors = input<readonly WithOptionalField<ValidationError>[]>([]);
+  readOnly = input<boolean>();
+  invalid = input<boolean>(false);
 
-  // value = model<unknown>(null);
 
-  // errors = input<readonly WithOptionalField<ValidationError>[]>([]);
-  // touched = input<boolean>(false);
-  // invalid = input<boolean>(false);
-
-  controlAux = input<any>(undefined);
-
-  onInput() {
-    // this.value.set(this.fieldAux().nativeElement.value);
+  updateValue(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.value.set(input.value ?? '');
   }
 }

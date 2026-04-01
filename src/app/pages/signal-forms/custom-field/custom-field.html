@@ -1,13 +1,13 @@
-<div class="custom-field-wrapper" [class.has-error]="this.controlAux()?.touched() && this.controlAux()?.invalid()">
+<div class="custom-field-wrapper" [class.has-error]="touched() && invalid()">
     <div class="custom-input-box">
         <span class="icon">✨</span>
         <input type="text" class="modern-input" placeholder="Escribe aquí para reflejar en el padre"
-            (input)="onInput()" />
+            (input)="updateValue($event)" />
     </div>
 
-    @if (this.controlAux()?.touched() && this.controlAux()?.invalid()) {
+    @if (touched() && invalid()) {
     <div class="error-container">
-        @for (error of this.controlAux()?.errors(); track error.message) {
+        @for (error of errors(); track error.message) {
         <span class="error-msg">❌ {{ error.message }}</span>
         }
     </div>

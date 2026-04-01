@@ -24,19 +24,10 @@ export class SignalForms {
     required(schemaPath.password, { message: 'Password is required' });
   });
 
-  constructor() {
-    effect(() => {
-      // console.log('Login Form Value:', this.loginForm().value());
-      // console.log('Login Model Value:', this.loginModel());
-    });
-  }
 
-  onSubmit(event: Event) {
-    event.preventDefault();
-    // Perform login logic here
+  onSubmit() {
     const credentials = this.loginModel();
     console.log('Logging in with:', credentials);
-    // e.g., await this.authService.login(credentials);
   }
 }
 

@@ -10,7 +10,7 @@
             </p>
         </div>
 
-        <form class="glass-form" (submit)="onSubmit($event)">
+        <form class="glass-form" (submit)="onSubmit()">
             <!-- Email Field -->
             <div class="form-group" [class.has-error]="loginForm.email().touched() && loginForm.email().invalid()">
                 <label>
@@ -61,7 +61,7 @@
                     <p>La misma instancia del control Email (vía Signal) en un componente externo</p>
                 </div>
             </div>
-            <app-custom-field [controlAux]="loginForm.email()"></app-custom-field>
+            <app-custom-field [formField]="loginForm.email"></app-custom-field>
         </div>
 
     </div>
