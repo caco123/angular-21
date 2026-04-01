@@ -1,7 +1,7 @@
 <div class="custom-field-wrapper" [class.has-error]="touched() && invalid()">
     <div class="custom-input-box">
         <span class="icon">✨</span>
-        <input type="text" class="modern-input" placeholder="Escribe aquí para reflejar en el padre"
+        <input type="text" [value]="value()" class="modern-input" placeholder="Escribe aquí para reflejar en el padre"
             (input)="updateValue($event)" />
     </div>
 
