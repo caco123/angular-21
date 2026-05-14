@@ -20,6 +20,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([httpErrorInterceptor, headersInterceptor])),
     configInitializer,
     provideRouter(routes),
-    datedInterceptorProviders,
+    // datedInterceptorProviders,
   ]
 };

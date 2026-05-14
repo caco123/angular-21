@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SplitPipe } from '../../pipes/split-pipe';
 
 @Component({
@@ -6,7 +6,10 @@ import { SplitPipe } from '../../pipes/split-pipe';
   imports: [SplitPipe],
   templateUrl: './pipes.html',
   styleUrl: './pipes.scss',
+  providers: [SplitPipe]
 })
 export class PipePage {
+  private readonly splitPipe = inject(SplitPipe);
   angular = "Angular 21";
+  angularSplit = this.splitPipe.transform(this.angular, '*');
 }

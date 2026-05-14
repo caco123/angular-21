@@ -20,27 +20,27 @@
                     }
 
                     @switch (user.occupation) {
-                    @case (occupations.Doctor) {
-                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Doctor</span>
-                    }
-                    @case (occupations.Engineer) {
-                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Engineer</span>
-                    }
-                    @case (occupations.Lawyer) {
-                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Lawyer</span>
-                    }
-                    @case (occupations.Other) {
-                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Other</span>
-                    }
-                    @case (occupations.Student) {
-                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Student</span>
-                    }
-                    @case (occupations.Teacher) {
-                    <span class="badge" [style.backgroundColor]="color[user.occupation]">Teacher</span>
-                    }
-                    @default {
-                    <span class="badge" [style.backgroundColor]="'#ef4444'">Unknown</span>
-                    }
+                        @case (occupations.Doctor) {
+                        <span class="badge" [style.backgroundColor]="color[user.occupation]">Doctor</span>
+                        }
+                        @case (occupations.Engineer) {
+                        <span class="badge" [style.backgroundColor]="color[user.occupation]">Engineer</span>
+                        }
+                        @case (occupations.Lawyer) {
+                        <span class="badge" [style.backgroundColor]="color[user.occupation]">Lawyer</span>
+                        }
+                        @case (occupations.Other) {
+                        <span class="badge" [style.backgroundColor]="color[user.occupation]">Other</span>
+                        }
+                        @case (occupations.Student) {
+                        <span class="badge" [style.backgroundColor]="color[user.occupation]">Student</span>
+                        }
+                        @case (occupations.Teacher) {
+                        <span class="badge" [style.backgroundColor]="color[user.occupation]">Teacher</span>
+                        }
+                        @default {
+                        <span class="badge" [style.backgroundColor]="'#ef4444'">Unknown</span>
+                        }
                     }
                 </div>
             </div>

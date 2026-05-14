@@ -8,11 +8,11 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
       if (req.context.get(SKIP_ERROR_INTERCEPTOR)) {
-        console.log(req.url, 'Error was handled in interceptor');
-        return EMPTY;
+        return throwError(() => new Error(error.message));
       }
 
-      return throwError(() => new Error(error.message));
+      console.log(req.url, 'Error was handled in interceptor');
+      return EMPTY;
     })
   );
 };

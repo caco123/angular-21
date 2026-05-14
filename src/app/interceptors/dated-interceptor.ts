@@ -22,10 +22,10 @@ export class DatedInterceptor implements HttpInterceptor {
 }
 
 export const datedInterceptorProviders: Array<Provider | EnvironmentProviders> = [
-  // provideHttpClient(withInterceptorsFromDi()),
-  // {
-  //   provide: HTTP_INTERCEPTORS,
-  //   useClass: DatedInterceptor,
-  //   multi: true
-  // }
+  provideHttpClient(withInterceptorsFromDi()),
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: DatedInterceptor,
+    multi: true
+  }
 ];
