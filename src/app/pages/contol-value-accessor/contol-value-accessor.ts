@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ChildInput } from './child-input/child-input';
 
 @Component({
@@ -9,5 +9,6 @@ import { ChildInput } from './child-input/child-input';
   styleUrl: './contol-value-accessor.scss',
 })
 export class ContolValueAccessor {
-  control = new FormControl('Initial Value');
+  private control = new FormControl({ value: 'Initial Value', disabled: false }, { nonNullable: true, validators: [Validators.required] });
+  formGroup = new FormGroup({ name: this.control });
 }

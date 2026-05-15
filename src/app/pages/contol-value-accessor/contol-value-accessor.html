@@ -25,21 +25,21 @@
                     <div class="parent-content">
                         <div class="data-row">
                             <span class="label">Control Value:</span>
-                            <span class="value string-value">"{{ control.value }}"</span>
+                            <span class="value string-value">"{{ formGroup.get('name')?.value }}"</span>
                         </div>
 
                         <div class="data-row">
                             <span class="label">State:</span>
-                            <span class="value state-badge" [class.disabled]="control.disabled">
-                                {{ control.disabled ? 'DISABLED' : 'ENABLED' }}
+                            <span class="value state-badge" [class.disabled]="formGroup.get('name')?.disabled">
+                                {{ formGroup.get('name')?.disabled ? 'DISABLED' : 'ENABLED' }}
                             </span>
                         </div>
 
                         <div class="action-buttons">
-                            <button class="modern-btn btn-primary" (click)="control.enable()"
-                                [disabled]="!control.disabled">Enable</button>
-                            <button class="modern-btn btn-danger" (click)="control.disable()"
-                                [disabled]="control.disabled">Disable</button>
+                            <button class="modern-btn btn-primary" (click)="formGroup.get('name')?.enable()"
+                                [disabled]="!formGroup.get('name')?.disabled">Enable</button>
+                            <button class="modern-btn btn-danger" (click)="formGroup.get('name')?.disable()"
+                                [disabled]="formGroup.get('name')?.disabled">Disable</button>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,9 @@
                     </div>
 
                     <div class="child-content">
-                        <app-child-input [formControl]="control"></app-child-input>
+                        <form [formGroup]="formGroup">
+                            <app-child-input formControlName="name"></app-child-input>
+                        </form>
                     </div>
                 </div>
 
