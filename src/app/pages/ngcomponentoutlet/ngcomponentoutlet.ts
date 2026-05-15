@@ -8,7 +8,7 @@ import { ViewContainerRefChildComponent } from './view-container-ref-child-compo
   styleUrl: './ngcomponentoutlet.scss',
 })
 export class Ngcomponentoutlet implements AfterViewInit {
-  containerRef = viewChild.required('viewContainerRef', { read: ViewContainerRef });
+  containerRef = viewChild.required('ngContainer', { read: ViewContainerRef });
 
   child?: ComponentRef<ViewContainerRefChildComponent>;
 
